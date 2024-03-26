@@ -1,11 +1,9 @@
 package com.coderhouse.entidades;
 
 import java.util.Objects;
+import java.util.Set;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="Clients")
@@ -23,7 +21,27 @@ public class Cliente {
 	private Integer clientPhone;
 	@Column(name="clientEmail")
 	private String clientEmail;
-	
+
+//	@ManyToOne
+//	@JoinColumn(name="SKU")
+//	private Producto product;
+//	private Integer idProduct;
+
+	@ManyToMany
+	@JoinTable(name="Sales"
+			,joinColumns = @JoinColumn(name="user_id")
+			,inverseJoinColumns = @JoinColumn(name="product_id")
+	)
+	private Set<Producto> product;
+
+	public Set<Producto> getProduct() {
+		return product;
+	}
+
+	public void setProduct(Set<Producto> product) {
+		this.product = product;
+	}
+
 	public Cliente() {
 	}
 	

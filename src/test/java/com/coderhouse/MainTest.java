@@ -2,6 +2,7 @@ package com.coderhouse;
 
 import com.coderhouse.controlador.JavaDataBaseController;
 import com.coderhouse.entidades.Cliente;
+import com.coderhouse.entidades.Producto;
 import org.springframework.boot.SpringApplication;
 
 import java.sql.SQLException;
@@ -39,7 +40,9 @@ public class MainTest {
         //controller.modificarCliente(28042402, 1163615454, "Libertad 885, Garin", "nori.doc.021@gmail.com");
         //controller.eliminarCliente(28042402);
         //controller.mostrarClientes();
-        controller.mostrarCliente(20000099);
+        //controller.mostrarCliente(20000099);
+
+        //controller.insertarProducto(product);
         controller.closeConnection();
 
     }
